@@ -34,13 +34,12 @@
     }
 
     public function execute() {
+      $CLICSHOPPING_ProductsCommon = Registry::get('ProductsCommon');
 
-      if (isset($_GET['products_id']) && isset($_GET['Products']) ) {
-
+      if ($CLICSHOPPING_ProductsCommon->getID() && isset($_GET['Products']) ) {
         $content_width = (int)MODULE_PRODUCTS_INFO_DIMENSION_CONTENT_WIDTH;
         $text_position = MODULE_PRODUCTS_INFO_DIMENSION_POSITION;
 
-        $CLICSHOPPING_ProductsCommon = Registry::get('ProductsCommon');
         $CLICSHOPPING_Template = Registry::get('Template');
 
         $products_dimension = $CLICSHOPPING_ProductsCommon->getProductsDimension();
@@ -49,7 +48,7 @@
           $products_dimension_content = '<!-- Start products_dimension -->' . "\n";
 
           ob_start();
-          require($CLICSHOPPING_Template->getTemplateModules($this->group . '/content/products_info_dimension'));
+          require_once($CLICSHOPPING_Template->getTemplateModules($this->group . '/content/products_info_dimension'));
           $products_dimension_content .= ob_get_clean();
 
           $products_dimension_content .= '<!-- products_dimension -->' . "\n";
