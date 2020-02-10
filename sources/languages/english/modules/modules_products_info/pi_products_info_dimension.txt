@@ -1,5 +1,5 @@
 
  module_products_info_dimension = Do you want the product dimension ?
  module_products_info_dimension_description = Display the product dimension
- text_products_dimension = <strong>Dimensions (LxHxD)</strong>
+ text_products_dimension = Dimensions (LxHxD) :
 
